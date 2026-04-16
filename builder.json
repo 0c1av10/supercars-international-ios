@@ -1,0 +1,17 @@
+{
+  "project": "supercars_international",
+  "platform": "ios",
+  "github": {
+    "owner": "0c1av10",
+    "repo": "supercars-international-ios"
+  },
+  "ios": {
+    "path": "ios"
+  },
+  "flutter": {
+    "version": "3.41.6",
+    "watch": {}
+  },
+  "reactNative": {},
+  "mobai": {}
+}
