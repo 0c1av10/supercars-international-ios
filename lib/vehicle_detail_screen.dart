@@ -23,46 +23,33 @@ class VehicleDetailScreen extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 12),
               child: Row(
                 children: [
-                  const Icon(Icons.star, color: AppTheme.brand, size: 14),
+                  const Icon(Icons.star, color: AppTheme.heroGold, size: 14),
                   const SizedBox(width: 6),
                   Text(
                     badge!,
                     style: const TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.bold,
-                      color: AppTheme.brand,
+                      color: AppTheme.heroGold,
                       letterSpacing: 0.5,
                     ),
                   ),
                 ],
               ),
             ),
-          Container(
-            height: 150,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              gradient: const LinearGradient(
-                colors: [AppTheme.card, Colors.black],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-            ),
-            child: const Center(
-              child: Icon(Icons.directions_car, size: 64, color: AppTheme.brand),
-            ),
-          ),
+          _Hero(vehicle: vehicle),
           const SizedBox(height: 12),
           Row(
             children: [
               Text(
                 '${vehicle.brand} ${vehicle.year}',
-                style: const TextStyle(color: Colors.white60),
+                style: const TextStyle(color: AppTheme.silver),
               ),
               const Spacer(),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 decoration: BoxDecoration(
-                  color: AppTheme.brand,
+                  color: AppTheme.ink,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
@@ -70,7 +57,7 @@ class VehicleDetailScreen extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -79,11 +66,15 @@ class VehicleDetailScreen extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             vehicle.model,
-            style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+              color: AppTheme.ink,
+            ),
           ),
           const Text(
             'Importado desde China · Inspección documentada · Entrega ~90 días',
-            style: TextStyle(color: Colors.white54, fontSize: 12),
+            style: TextStyle(color: AppTheme.silver, fontSize: 12),
           ),
           const SizedBox(height: 20),
           GridView.count(
@@ -101,17 +92,18 @@ class VehicleDetailScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 20),
-          const Text('Equipamiento', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const Text('Equipamiento',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppTheme.ink)),
           const SizedBox(height: 8),
           for (final h in vehicle.highlights)
             Padding(
               padding: const EdgeInsets.only(bottom: 6),
               child: Row(
                 children: [
-                  const Icon(Icons.check_circle, color: AppTheme.brand, size: 16),
+                  const Icon(Icons.check_circle, color: AppTheme.heroGold, size: 16),
                   const SizedBox(width: 8),
                   Expanded(
-                    child: Text(h, style: const TextStyle(color: Colors.white70, fontSize: 13)),
+                    child: Text(h, style: const TextStyle(color: AppTheme.mid, fontSize: 13)),
                   ),
                 ],
               ),
@@ -120,13 +112,15 @@ class VehicleDetailScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: AppTheme.card,
+              color: AppTheme.paper,
               borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: AppTheme.rule),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Precio', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                const Text('Precio',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppTheme.ink)),
                 const SizedBox(height: 12),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -135,19 +129,20 @@ class VehicleDetailScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text('Vehículo en origen',
-                            style: TextStyle(color: Colors.white54, fontSize: 11)),
+                            style: TextStyle(color: AppTheme.silver, fontSize: 11)),
                         Text(vehicle.vehiclePrice,
-                            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                            style: const TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold, color: AppTheme.ink)),
                       ],
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         const Text('Total aprox. en destino',
-                            style: TextStyle(color: Colors.white54, fontSize: 11)),
+                            style: TextStyle(color: AppTheme.silver, fontSize: 11)),
                         Text(vehicle.landedPrice,
                             style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold, color: AppTheme.brand)),
+                                fontSize: 18, fontWeight: FontWeight.bold, color: AppTheme.heroGold)),
                       ],
                     ),
                   ],
@@ -158,8 +153,8 @@ class VehicleDetailScreen extends StatelessWidget {
           const SizedBox(height: 20),
           FilledButton.icon(
             style: FilledButton.styleFrom(
-              backgroundColor: AppTheme.brand,
-              foregroundColor: Colors.black,
+              backgroundColor: AppTheme.ink,
+              foregroundColor: Colors.white,
               minimumSize: const Size.fromHeight(48),
             ),
             onPressed: () => Navigator.of(context).push(
@@ -171,8 +166,8 @@ class VehicleDetailScreen extends StatelessWidget {
           const SizedBox(height: 10),
           OutlinedButton.icon(
             style: OutlinedButton.styleFrom(
-              foregroundColor: AppTheme.brand,
-              side: const BorderSide(color: AppTheme.brand),
+              foregroundColor: AppTheme.heroGold,
+              side: const BorderSide(color: AppTheme.heroGold),
               minimumSize: const Size.fromHeight(48),
             ),
             onPressed: () => launchUrl(
@@ -183,6 +178,71 @@ class VehicleDetailScreen extends StatelessWidget {
             label: const Text('WhatsApp directo'),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _Hero extends StatefulWidget {
+  const _Hero({required this.vehicle});
+
+  final Vehicle vehicle;
+
+  @override
+  State<_Hero> createState() => _HeroState();
+}
+
+class _HeroState extends State<_Hero> {
+  int _page = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    final images = widget.vehicle.images;
+    if (images.isEmpty) {
+      return Container(
+        height: 150,
+        decoration: BoxDecoration(
+          color: AppTheme.warm,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: const Center(
+          child: Icon(Icons.directions_car, size: 64, color: AppTheme.silver),
+        ),
+      );
+    }
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: SizedBox(
+        height: 220,
+        child: Stack(
+          children: [
+            PageView.builder(
+              itemCount: images.length,
+              onPageChanged: (i) => setState(() => _page = i),
+              itemBuilder: (_, i) => Image.asset(images[i], fit: BoxFit.cover),
+            ),
+            Positioned(
+              bottom: 10,
+              left: 0,
+              right: 0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  for (var i = 0; i < images.length; i++)
+                    Container(
+                      width: 6,
+                      height: 6,
+                      margin: const EdgeInsets.symmetric(horizontal: 3),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: i == _page ? Colors.white : Colors.white54,
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -200,7 +260,7 @@ class _SpecCell extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: AppTheme.card,
+        color: AppTheme.warm,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -208,15 +268,17 @@ class _SpecCell extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(icon, size: 13, color: AppTheme.brand),
+              Icon(icon, size: 13, color: AppTheme.heroGold),
               const SizedBox(width: 5),
               Expanded(
-                child: Text(title, style: const TextStyle(fontSize: 11, color: AppTheme.brand)),
+                child: Text(title, style: const TextStyle(fontSize: 11, color: AppTheme.heroGold)),
               ),
             ],
           ),
           const SizedBox(height: 5),
-          Text(value, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+          Text(value,
+              style: const TextStyle(
+                  fontSize: 13, fontWeight: FontWeight.w600, color: AppTheme.ink)),
         ],
       ),
     );

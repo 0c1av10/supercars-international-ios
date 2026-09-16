@@ -30,26 +30,28 @@ class AboutScreen extends StatelessWidget {
           const Text(
             'Exportación directa de vehículos 0KM desde China hacia Venezuela y el mundo. '
             'Proceso transparente, 90 días, precio de origen.',
-            style: TextStyle(color: Colors.white70),
+            style: TextStyle(color: AppTheme.mid),
           ),
           const SizedBox(height: 24),
           const Text('Nuestra historia',
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
+              style: TextStyle(
+                  fontSize: 17, fontWeight: FontWeight.bold, color: AppTheme.ink)),
           const SizedBox(height: 10),
           const Text(
             '"Creemos que todos merecen acceso a un vehículo de calidad, importado '
             'directamente desde origen, con transparencia total en cada paso."',
-            style: TextStyle(fontStyle: FontStyle.italic),
+            style: TextStyle(fontStyle: FontStyle.italic, color: AppTheme.ink),
           ),
           const SizedBox(height: 8),
           const Text(
             'Super Cars International nació para eliminar intermediarios y acercar los '
             'mejores vehículos del mundo — especialmente desde China a Venezuela y Latinoamérica.',
-            style: TextStyle(color: Colors.white60, fontSize: 13),
+            style: TextStyle(color: AppTheme.mid, fontSize: 13),
           ),
           const SizedBox(height: 24),
           const Text('Por qué nosotros',
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
+              style: TextStyle(
+                  fontSize: 17, fontWeight: FontWeight.bold, color: AppTheme.ink)),
           const SizedBox(height: 12),
           const _FeatureRow(
             number: '01',
@@ -70,10 +72,13 @@ class AboutScreen extends StatelessWidget {
                 'documentación oficial de fábrica.',
           ),
           const SizedBox(height: 24),
-          const Text('Cobertura', style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
+          const Text('Cobertura',
+              style: TextStyle(
+                  fontSize: 17, fontWeight: FontWeight.bold, color: AppTheme.ink)),
           const SizedBox(height: 6),
           const Text('China → el mundo',
-              style: TextStyle(fontSize: 19, fontWeight: FontWeight.w600)),
+              style: TextStyle(
+                  fontSize: 19, fontWeight: FontWeight.w600, color: AppTheme.ink)),
           const SizedBox(height: 12),
           Wrap(
             spacing: 8,
@@ -83,18 +88,19 @@ class AboutScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
-                    color: AppTheme.card,
+                    color: AppTheme.warm,
                     borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: AppTheme.rule),
                   ),
-                  child: Text(d, style: const TextStyle(fontSize: 12)),
+                  child: Text(d, style: const TextStyle(fontSize: 12, color: AppTheme.mid)),
                 ),
             ],
           ),
           const SizedBox(height: 28),
           OutlinedButton.icon(
             style: OutlinedButton.styleFrom(
-              foregroundColor: AppTheme.brand,
-              side: const BorderSide(color: AppTheme.brand),
+              foregroundColor: AppTheme.heroGold,
+              side: const BorderSide(color: AppTheme.heroGold),
               minimumSize: const Size.fromHeight(44),
             ),
             onPressed: () => launchUrl(Uri.parse(Catalog.siteUrl),
@@ -121,8 +127,9 @@ class _FeatureRow extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: AppTheme.card,
+        color: AppTheme.warm,
         borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: AppTheme.rule),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,7 +139,7 @@ class _FeatureRow extends StatelessWidget {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w900,
-              color: AppTheme.brand.withValues(alpha: 0.7),
+              color: AppTheme.heroGold.withValues(alpha: 0.8),
             ),
           ),
           const SizedBox(width: 14),
@@ -140,9 +147,11 @@ class _FeatureRow extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
+                Text(title,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w600, color: AppTheme.ink)),
                 const SizedBox(height: 4),
-                Text(text, style: const TextStyle(color: Colors.white60, fontSize: 12)),
+                Text(text, style: const TextStyle(color: AppTheme.mid, fontSize: 12)),
               ],
             ),
           ),

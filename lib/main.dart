@@ -18,7 +18,7 @@ class SuperCarsApp extends StatelessWidget {
     return MaterialApp(
       title: 'Super Cars International',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.dark,
+      theme: AppTheme.theme,
       home: const RootScreen(),
     );
   }

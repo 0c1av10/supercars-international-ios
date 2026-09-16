@@ -21,7 +21,11 @@ class Vehicle {
     required this.vehiclePrice,
     required this.landedPrice,
     this.featured = false,
+    this.images = const [],
   });
+
+  /// Bundled asset paths of real photos, when the site provides them.
+  final List<String> images;
 
   final String brand;
   final String model;
@@ -51,6 +55,12 @@ class Catalog {
       fuelEconomy: '~18 km/L',
       highlights: ['6 Airbags', 'Pantalla 7" multimedia', 'Baja rodada', 'Inspección documentada'],
       vehiclePrice: 'US\$ 7.850', landedPrice: 'US\$ 22.850', featured: true,
+      images: [
+        'assets/images/vehicles/levin-frontal.jpeg',
+        'assets/images/vehicles/levin-lateral.jpeg',
+        'assets/images/vehicles/levin-desde_atras.jpeg',
+        'assets/images/vehicles/levin-tablero.jpeg',
+      ],
     ),
     Vehicle(
       brand: 'Toyota', model: 'Camry Sport', year: 2024,

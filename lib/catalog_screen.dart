@@ -44,14 +44,14 @@ class _CatalogScreenState extends State<CatalogScreen> {
             style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w600,
-              color: AppTheme.brand,
+              color: AppTheme.heroGold,
               letterSpacing: 0.5,
             ),
           ),
           const SizedBox(height: 6),
           const Text(
             'Vehículos 0KM y usados directo de los mejores dealers en China.',
-            style: TextStyle(color: Colors.white70, fontSize: 13),
+            style: TextStyle(color: AppTheme.mid, fontSize: 13),
           ),
           const SizedBox(height: 16),
           SizedBox(
@@ -125,15 +125,16 @@ class _Chip extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
         decoration: BoxDecoration(
-          color: selected ? AppTheme.brand : AppTheme.card,
+          color: selected ? AppTheme.ink : AppTheme.warm,
           borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: selected ? AppTheme.ink : AppTheme.rule),
         ),
         child: Text(
           label,
           style: TextStyle(
             fontSize: 12,
-            fontWeight: FontWeight.w500,
-            color: selected ? Colors.black : Colors.white,
+            fontWeight: FontWeight.w600,
+            color: selected ? Colors.white : AppTheme.mid,
           ),
         ),
       ),
@@ -156,26 +157,29 @@ class _VehicleCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: AppTheme.card,
+          color: AppTheme.paper,
           borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: AppTheme.rule),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
               children: [
-                Container(
-                  height: 72,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    gradient: const LinearGradient(
-                      colors: [AppTheme.card, Colors.black],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                  ),
-                  child: const Center(
-                    child: Icon(Icons.directions_car, size: 34, color: AppTheme.brand),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: SizedBox(
+                    height: 72,
+                    width: double.infinity,
+                    child: vehicle.images.isNotEmpty
+                        ? Image.asset(vehicle.images.first, fit: BoxFit.cover)
+                        : Container(
+                            color: AppTheme.warm,
+                            child: const Center(
+                              child: Icon(Icons.directions_car,
+                                  size: 34, color: AppTheme.silver),
+                            ),
+                          ),
                   ),
                 ),
                 Positioned(
@@ -184,7 +188,7 @@ class _VehicleCard extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
-                      color: AppTheme.brand,
+                      color: AppTheme.ink,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
@@ -192,7 +196,7 @@ class _VehicleCard extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -202,13 +206,17 @@ class _VehicleCard extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               vehicle.model,
-              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+              style: const TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 13,
+                color: AppTheme.ink,
+              ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
             Text(
               '${vehicle.brand} · ${vehicle.year}',
-              style: const TextStyle(color: Colors.white60, fontSize: 11),
+              style: const TextStyle(color: AppTheme.silver, fontSize: 11),
             ),
             const SizedBox(height: 4),
             Text.rich(
@@ -218,13 +226,13 @@ class _VehicleCard extends StatelessWidget {
                     text: vehicle.landedPrice,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: AppTheme.brand,
+                      color: AppTheme.heroGold,
                       fontSize: 12,
                     ),
                   ),
                   const TextSpan(
                     text: ' puesto en destino',
-                    style: TextStyle(color: Colors.white54, fontSize: 10),
+                    style: TextStyle(color: AppTheme.silver, fontSize: 10),
                   ),
                 ],
               ),

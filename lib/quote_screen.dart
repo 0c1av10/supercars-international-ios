@@ -114,8 +114,8 @@ class _QuoteScreenState extends State<QuoteScreen> {
           const SizedBox(height: 24),
           FilledButton.icon(
             style: FilledButton.styleFrom(
-              backgroundColor: AppTheme.brand,
-              foregroundColor: Colors.black,
+              backgroundColor: AppTheme.ink,
+              foregroundColor: Colors.white,
               minimumSize: const Size.fromHeight(48),
             ),
             onPressed: _sendQuote,
@@ -142,7 +142,7 @@ class _SectionHeader extends StatelessWidget {
         style: const TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.bold,
-          color: AppTheme.brand,
+          color: AppTheme.heroGold,
         ),
       ),
     );
