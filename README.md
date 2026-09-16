@@ -1,17 +1,25 @@
-# supercars_international
+# Super Cars International — iOS App
 
-A new Flutter project.
+Flutter app for [supercars-international.com](https://supercars-international.com):
+direct import of 0KM and used vehicles from China to Venezuela and worldwide.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **Catálogo** — vehicle grid with brand and 0KM/Usado filters.
+- **Del Mes** — featured vehicle of the month (Corolla Levin 1.5L).
+- **Cotizar** — quote form that opens WhatsApp with a prefilled message.
+- **Nosotros** — company story, guarantees, and coverage.
 
-A few resources to get you started if this is your first Flutter project:
+All content is in Spanish, matching the site. Vehicle data currently lives in
+`lib/models.dart` (mirroring the site's catalog).
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Develop
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```sh
+flutter pub get
+flutter analyze
+flutter test
+flutter run -d <ios-simulator-id>
+```
+
+Requires the Flutter SDK (stable) and CocoaPods for iOS builds.
