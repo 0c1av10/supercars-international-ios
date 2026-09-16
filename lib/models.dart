@@ -40,7 +40,7 @@ class Vehicle {
 class Catalog {
   Catalog._();
 
-  static const whatsappNumber = '584120000000';
+  static const whatsappNumber = '584220234582';
   static const siteUrl = 'https://supercars-international.com';
 
   static const vehicles = <Vehicle>[
