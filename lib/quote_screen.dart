@@ -112,15 +112,14 @@ class _QuoteScreenState extends State<QuoteScreen> {
             ),
           ),
           const SizedBox(height: 24),
-          FilledButton.icon(
+          FilledButton(
             style: FilledButton.styleFrom(
               backgroundColor: AppTheme.ink,
               foregroundColor: Colors.white,
               minimumSize: const Size.fromHeight(48),
             ),
             onPressed: _sendQuote,
-            icon: const Icon(Icons.send),
-            label: const Text('Enviar cotización por WhatsApp'),
+            child: const Text('Enviar cotización por WhatsApp'),
           ),
         ],
       ),
@@ -138,10 +137,11 @@ class _SectionHeader extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 16, bottom: 10),
       child: Text(
-        title,
+        title.toUpperCase(),
         style: const TextStyle(
-          fontSize: 13,
-          fontWeight: FontWeight.bold,
+          fontSize: 10,
+          fontWeight: FontWeight.w600,
+          letterSpacing: 1.4,
           color: AppTheme.heroGold,
         ),
       ),

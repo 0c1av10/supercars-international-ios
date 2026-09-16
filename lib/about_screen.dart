@@ -89,7 +89,7 @@ class AboutScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
                     color: AppTheme.warm,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(6),
                     border: Border.all(color: AppTheme.rule),
                   ),
                   child: Text(d, style: const TextStyle(fontSize: 12, color: AppTheme.mid)),
@@ -97,7 +97,7 @@ class AboutScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 28),
-          OutlinedButton.icon(
+          OutlinedButton(
             style: OutlinedButton.styleFrom(
               foregroundColor: AppTheme.heroGold,
               side: const BorderSide(color: AppTheme.heroGold),
@@ -105,8 +105,7 @@ class AboutScreen extends StatelessWidget {
             ),
             onPressed: () => launchUrl(Uri.parse(Catalog.siteUrl),
                 mode: LaunchMode.externalApplication),
-            icon: const Icon(Icons.language),
-            label: const Text('supercars-international.com'),
+            child: const Text('supercars-international.com'),
           ),
         ],
       ),
@@ -128,7 +127,7 @@ class _FeatureRow extends StatelessWidget {
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: AppTheme.warm,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(color: AppTheme.rule),
       ),
       child: Row(

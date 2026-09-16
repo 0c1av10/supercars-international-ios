@@ -85,10 +85,10 @@ class VehicleDetailScreen extends StatelessWidget {
             crossAxisSpacing: 10,
             childAspectRatio: 2.6,
             children: [
-              _SpecCell(icon: Icons.settings, title: 'Motor', value: vehicle.engine),
-              _SpecCell(icon: Icons.tune, title: 'Transmisión', value: vehicle.transmission),
-              _SpecCell(icon: Icons.speed, title: 'Potencia', value: vehicle.horsepower),
-              _SpecCell(icon: Icons.local_gas_station, title: 'Autonomía', value: vehicle.fuelEconomy),
+              _SpecCell(title: 'Motor', value: vehicle.engine),
+              _SpecCell(title: 'Transmisión', value: vehicle.transmission),
+              _SpecCell(title: 'Potencia', value: vehicle.horsepower),
+              _SpecCell(title: 'Autonomía', value: vehicle.fuelEconomy),
             ],
           ),
           const SizedBox(height: 20),
@@ -100,7 +100,8 @@ class VehicleDetailScreen extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 6),
               child: Row(
                 children: [
-                  const Icon(Icons.check_circle, color: AppTheme.heroGold, size: 16),
+                  const Text('—',
+                      style: TextStyle(color: AppTheme.heroGold, fontSize: 13)),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(h, style: const TextStyle(color: AppTheme.mid, fontSize: 13)),
@@ -113,7 +114,7 @@ class VehicleDetailScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: AppTheme.paper,
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(10),
               border: Border.all(color: AppTheme.rule),
             ),
             child: Column(
@@ -151,7 +152,7 @@ class VehicleDetailScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          FilledButton.icon(
+          FilledButton(
             style: FilledButton.styleFrom(
               backgroundColor: AppTheme.ink,
               foregroundColor: Colors.white,
@@ -160,11 +161,10 @@ class VehicleDetailScreen extends StatelessWidget {
             onPressed: () => Navigator.of(context).push(
               MaterialPageRoute(builder: (_) => QuoteScreen(vehicle: vehicle)),
             ),
-            icon: const Icon(Icons.description),
-            label: const Text('Cotizar este vehículo'),
+            child: const Text('Cotizar este vehículo'),
           ),
           const SizedBox(height: 10),
-          OutlinedButton.icon(
+          OutlinedButton(
             style: OutlinedButton.styleFrom(
               foregroundColor: AppTheme.heroGold,
               side: const BorderSide(color: AppTheme.heroGold),
@@ -174,8 +174,7 @@ class VehicleDetailScreen extends StatelessWidget {
               Uri.parse('https://wa.me/${Catalog.whatsappNumber}'),
               mode: LaunchMode.externalApplication,
             ),
-            icon: const Icon(Icons.message),
-            label: const Text('WhatsApp directo'),
+            child: const Text('WhatsApp directo'),
           ),
         ],
       ),
@@ -206,7 +205,15 @@ class _HeroState extends State<_Hero> {
           borderRadius: BorderRadius.circular(16),
         ),
         child: const Center(
-          child: Icon(Icons.directions_car, size: 64, color: AppTheme.silver),
+          child: Text(
+            'SUPER CARS',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 3,
+              color: AppTheme.silver,
+            ),
+          ),
         ),
       );
     }
@@ -249,9 +256,8 @@ class _HeroState extends State<_Hero> {
 }
 
 class _SpecCell extends StatelessWidget {
-  const _SpecCell({required this.icon, required this.title, required this.value});
+  const _SpecCell({required this.title, required this.value});
 
-  final IconData icon;
   final String title;
   final String value;
 
@@ -259,21 +265,20 @@ class _SpecCell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: AppTheme.warm,
-        borderRadius: BorderRadius.circular(12),
+      decoration: const BoxDecoration(
+        border: Border(top: BorderSide(color: AppTheme.heroGold, width: 1.5)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Icon(icon, size: 13, color: AppTheme.heroGold),
-              const SizedBox(width: 5),
-              Expanded(
-                child: Text(title, style: const TextStyle(fontSize: 11, color: AppTheme.heroGold)),
-              ),
-            ],
+          Text(
+            title.toUpperCase(),
+            style: const TextStyle(
+              fontSize: 9,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 1.2,
+              color: AppTheme.silver,
+            ),
           ),
           const SizedBox(height: 5),
           Text(value,

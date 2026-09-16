@@ -4,6 +4,7 @@ import 'about_screen.dart';
 import 'catalog_screen.dart';
 import 'featured_screen.dart';
 import 'quote_screen.dart';
+import 'splash_screen.dart';
 import 'theme.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class SuperCarsApp extends StatelessWidget {
       title: 'Super Cars International',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
-      home: const RootScreen(),
+      home: const SplashScreen(),
     );
   }
 }

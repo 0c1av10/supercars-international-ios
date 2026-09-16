@@ -42,16 +42,21 @@ class _CatalogScreenState extends State<CatalogScreen> {
           const Text(
             'CHINA → VENEZUELA · IMPORTACIÓN MUNDIAL',
             style: TextStyle(
-              fontSize: 11,
+              fontSize: 10,
               fontWeight: FontWeight.w600,
               color: AppTheme.heroGold,
-              letterSpacing: 0.5,
+              letterSpacing: 1.6,
             ),
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: 10),
           const Text(
-            'Vehículos 0KM y usados directo de los mejores dealers en China.',
-            style: TextStyle(color: AppTheme.mid, fontSize: 13),
+            'Vehículos 0KM y usados directo\nde los mejores dealers en China.',
+            style: TextStyle(
+              color: AppTheme.ink,
+              fontSize: 19,
+              fontWeight: FontWeight.w600,
+              height: 1.25,
+            ),
           ),
           const SizedBox(height: 16),
           SizedBox(
@@ -99,7 +104,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
               crossAxisCount: 2,
               mainAxisSpacing: 12,
               crossAxisSpacing: 12,
-              childAspectRatio: 0.78,
+              childAspectRatio: 0.82,
             ),
             itemCount: _filtered.length,
             itemBuilder: (context, i) => _VehicleCard(vehicle: _filtered[i]),
@@ -125,8 +130,8 @@ class _Chip extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
         decoration: BoxDecoration(
-          color: selected ? AppTheme.ink : AppTheme.warm,
-          borderRadius: BorderRadius.circular(20),
+          color: selected ? AppTheme.ink : AppTheme.paper,
+          borderRadius: BorderRadius.circular(6),
           border: Border.all(color: selected ? AppTheme.ink : AppTheme.rule),
         ),
         child: Text(
@@ -153,12 +158,11 @@ class _VehicleCard extends StatelessWidget {
       onTap: () => Navigator.of(context).push(
         MaterialPageRoute(builder: (_) => VehicleDetailScreen(vehicle: vehicle)),
       ),
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(10),
       child: Container(
-        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: AppTheme.paper,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(10),
           border: Border.all(color: AppTheme.rule),
         ),
         child: Column(
@@ -167,29 +171,37 @@ class _VehicleCard extends StatelessWidget {
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(10)),
                   child: SizedBox(
-                    height: 72,
+                    height: 88,
                     width: double.infinity,
                     child: vehicle.images.isNotEmpty
                         ? Image.asset(vehicle.images.first, fit: BoxFit.cover)
                         : Container(
                             color: AppTheme.warm,
                             child: const Center(
-                              child: Icon(Icons.directions_car,
-                                  size: 34, color: AppTheme.silver),
+                              child: Text(
+                                'SUPER CARS',
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 2.5,
+                                  color: AppTheme.silver,
+                                ),
+                              ),
                             ),
                           ),
                   ),
                 ),
                 Positioned(
-                  top: 6,
-                  left: 6,
+                  top: 8,
+                  left: 8,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
                     decoration: BoxDecoration(
                       color: AppTheme.ink,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(4),
                     ),
                     child: Text(
                       vehicle.condition.label,
@@ -203,36 +215,43 @@ class _VehicleCard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 8),
-            Text(
-              vehicle.model,
-              style: const TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 13,
-                color: AppTheme.ink,
-              ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-            Text(
-              '${vehicle.brand} · ${vehicle.year}',
-              style: const TextStyle(color: AppTheme.silver, fontSize: 11),
-            ),
-            const SizedBox(height: 4),
-            Text.rich(
-              TextSpan(
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextSpan(
-                    text: vehicle.landedPrice,
+                  Text(
+                    vehicle.model,
                     style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: AppTheme.heroGold,
-                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 13,
+                      color: AppTheme.ink,
                     ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  const TextSpan(
-                    text: ' puesto en destino',
-                    style: TextStyle(color: AppTheme.silver, fontSize: 10),
+                  Text(
+                    '${vehicle.brand} · ${vehicle.year}',
+                    style: const TextStyle(color: AppTheme.silver, fontSize: 11),
+                  ),
+                  const SizedBox(height: 6),
+                  Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: vehicle.landedPrice,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: AppTheme.heroGold,
+                            fontSize: 12,
+                          ),
+                        ),
+                        const TextSpan(
+                          text: ' puesto en destino',
+                          style: TextStyle(color: AppTheme.silver, fontSize: 10),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

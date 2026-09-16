@@ -4,10 +4,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:supercars_international/main.dart';
 import 'package:supercars_international/models.dart';
 
+Future<void> _boot(WidgetTester tester) async {
+  await tester.pumpWidget(const SuperCarsApp());
+  await tester.pump(const Duration(seconds: 4));
+  await tester.pumpAndSettle();
+}
+
 void main() {
   testWidgets('App boots into the catalog tab', (WidgetTester tester) async {
-    await tester.pumpWidget(const SuperCarsApp());
-    await tester.pumpAndSettle();
+    await _boot(tester);
 
     expect(find.text('Catálogo'), findsWidgets);
     expect(find.text('CHINA → VENEZUELA · IMPORTACIÓN MUNDIAL'), findsOneWidget);
@@ -15,8 +20,7 @@ void main() {
   });
 
   testWidgets('Catalog filters by condition', (WidgetTester tester) async {
-    await tester.pumpWidget(const SuperCarsApp());
-    await tester.pumpAndSettle();
+    await _boot(tester);
 
     await tester.tap(find.text('Usado').first);
     await tester.pumpAndSettle();
@@ -27,8 +31,7 @@ void main() {
   });
 
   testWidgets('Vehicle card opens detail with price', (WidgetTester tester) async {
-    await tester.pumpWidget(const SuperCarsApp());
-    await tester.pumpAndSettle();
+    await _boot(tester);
 
     await tester.tap(find.text('Corolla Levin 1.5L'));
     await tester.pumpAndSettle();
@@ -44,8 +47,7 @@ void main() {
   });
 
   testWidgets('Bottom nav switches tabs', (WidgetTester tester) async {
-    await tester.pumpWidget(const SuperCarsApp());
-    await tester.pumpAndSettle();
+    await _boot(tester);
 
     await tester.tap(find.text('Nosotros'));
     await tester.pumpAndSettle();
