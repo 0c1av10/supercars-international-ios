@@ -57,6 +57,7 @@ class Catalog {
       vehiclePrice: 'US\$ 7.850', landedPrice: 'US\$ 22.850', featured: true,
       images: [
         'assets/images/vehicles/levin-frontal.jpeg',
+        'assets/images/vehicles/levin-frontal_2.jpeg',
         'assets/images/vehicles/levin-lateral.jpeg',
         'assets/images/vehicles/levin-desde_atras.jpeg',
         'assets/images/vehicles/levin-tablero.jpeg',
@@ -69,6 +70,7 @@ class Catalog {
       fuelEconomy: '~15 km/L',
       highlights: ['Toyota Safety Sense', 'Pantalla 9"', 'Sunroof'],
       vehiclePrice: 'US\$ 19.900', landedPrice: 'US\$ 38.500',
+      images: ['assets/images/vehicles/camry-2026.jpg'],
     ),
     Vehicle(
       brand: 'Toyota', model: 'Corolla Cross', year: 2024,
@@ -77,6 +79,10 @@ class Catalog {
       fuelEconomy: '~20 km/L',
       highlights: ['Híbrido', 'Toyota Safety Sense', 'Cámara 360°'],
       vehiclePrice: 'US\$ 17.400', landedPrice: 'US\$ 34.900',
+      images: [
+        'assets/images/vehicles/corolla-cross.jpg',
+        'assets/images/vehicles/corolla-cross-side.jpg',
+      ],
     ),
     Vehicle(
       brand: 'Toyota', model: 'Corolla Cross Elite', year: 2024,
@@ -85,6 +91,37 @@ class Catalog {
       fuelEconomy: '~15 km/L',
       highlights: ['Cuero', 'Techo panorámico', 'Pantalla 10.25"'],
       vehiclePrice: 'US\$ 19.200', landedPrice: 'US\$ 37.800',
+      images: [
+        'assets/images/vehicles/corolla-cross-elite-2026.jpg',
+        'assets/images/vehicles/corolla-cross-1.webp',
+        'assets/images/vehicles/corolla-cross-2.webp',
+        'assets/images/vehicles/corolla-cross-3.webp',
+        'assets/images/vehicles/corolla-cross-4.webp',
+      ],
+    ),
+    Vehicle(
+      brand: 'Toyota', model: 'Land Cruiser Prado WX 4x4', year: 2026,
+      condition: VehicleCondition.nuevo,
+      engine: '2.7L 4-cil. Gasolina', transmission: 'Automática · 4x4',
+      horsepower: 'Consultar',
+      fuelEconomy: '—',
+      highlights: [
+        'Origen: Dubái',
+        '5 plazas · Tapicería en piel',
+        'Rines 18"',
+        'Compuerta eléctrica',
+      ],
+      vehiclePrice: 'US\$ 50.000', landedPrice: 'US\$ 50.000 (FOB Dubái)',
+      images: [
+        'assets/images/vehicles/prado-2026-1.jpeg',
+        'assets/images/vehicles/prado-2026-2.jpeg',
+        'assets/images/vehicles/prado-2026-3.jpeg',
+        'assets/images/vehicles/prado-2026-4.jpeg',
+        'assets/images/vehicles/prado-2026-5.jpeg',
+        'assets/images/vehicles/prado-2026-6.jpeg',
+        'assets/images/vehicles/prado-2026-7.jpeg',
+        'assets/images/vehicles/prado-2026-8.jpeg',
+      ],
     ),
     Vehicle(
       brand: 'Toyota', model: 'RAV4 4x4', year: 2024,
