@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class AppTheme {
   AppTheme._();
 
-  static const brand = Color(0xFFD9A032); // dorado
-  static const bg = Color(0xFF0D0D12);
-  static const card = Color(0xFF1C1C22);
+  static const brand = Color(0xFFC9A84C); // site gold
+  static const bg = Color(0xFF15171A);
+  static const card = Color(0xFF1E2124);
 
   static ThemeData get dark {
     final scheme = ColorScheme.fromSeed(
@@ -15,6 +15,7 @@ class AppTheme {
     );
     return ThemeData(
       useMaterial3: true,
+      fontFamily: 'Montserrat',
       colorScheme: scheme,
       scaffoldBackgroundColor: bg,
       cardColor: card,

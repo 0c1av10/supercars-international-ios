@@ -14,13 +14,16 @@ class AboutScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          const Text(
-            'SUPER CARS\nINTERNATIONAL',
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w900,
-              color: AppTheme.brand,
-              height: 1.1,
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(14),
+            ),
+            child: Image.asset(
+              'assets/images/logo.png',
+              height: 110,
+              fit: BoxFit.contain,
             ),
           ),
           const SizedBox(height: 10),

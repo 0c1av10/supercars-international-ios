@@ -49,7 +49,8 @@ void main() {
 
     await tester.tap(find.text('Nosotros'));
     await tester.pumpAndSettle();
-    expect(find.text('SUPER CARS\nINTERNATIONAL'), findsOneWidget);
+    expect(find.image(const AssetImage('assets/images/logo.png')), findsWidgets);
+    expect(find.text('Nuestra historia'), findsOneWidget);
 
     await tester.tap(find.text('Cotizar'));
     await tester.pumpAndSettle();
